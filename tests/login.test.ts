@@ -1,5 +1,4 @@
-import { expect } from '@playwright/test';
-import { test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import { PageFactory } from '../ui/factory/page-factory';
 
 
@@ -9,7 +8,7 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('Register and Authentication tests', () => {
 
-    test('CT001 - Should be able to create a new user with success', async ({ page }) => {
+    test('CT001 - Should be able to create and do the login through a new user with success', async ({ page }) => {
 
         // Start the factory
         const factory = new PageFactory(page);
