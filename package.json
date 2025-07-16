@@ -1,0 +1,13 @@
+{
+  "name": "automation-patterns",
+  "version": "1.0.0",
+  "description": "automation test patterns",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Alex Alexandre Alves",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.54.0",
+    "@types/node": "^24.0.13"
+  }
+}
