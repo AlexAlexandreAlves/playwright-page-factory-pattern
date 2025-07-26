@@ -1,70 +1,70 @@
-# Page Factory Pattern com Playwright
+# Page Factory Pattern with Playwright
 
-Este projeto é uma suíte de testes automatizados utilizando [Playwright](https://playwright.dev/) para validar fluxos de autenticação e cadastro em uma aplicação web. O projeto adota o padrão **Page Factory Pattern** para organizar e simplificar a criação e o gerenciamento dos objetos de página, tornando os testes mais legíveis, reutilizáveis e de fácil manutenção.
+This project is an automated test suite using [Playwright](https://playwright.dev/) to validate authentication and registration flows in a web application. The project adopts the **Page Factory Pattern** to organize and simplify the creation and management of page objects, making tests more readable, reusable, and easy to maintain.
 
-## Contexto
+## Context
 
-O objetivo deste repositório é demonstrar como estruturar testes automatizados de ponta a ponta (E2E) utilizando o padrão de projeto **Page Factory Pattern**. Esse padrão centraliza a criação dos objetos de página em uma única classe ou função "fábrica", facilitando a injeção de dependências e o reaproveitamento dos objetos de página nos testes.
+The goal of this repository is to demonstrate how to structure end-to-end (E2E) automated tests using the **Page Factory Pattern** design pattern. This pattern centralizes the creation of page objects in a single "factory" class or function, making it easier to inject dependencies and reuse page objects in tests.
 
-## Sobre o Page Factory Pattern
+## About the Page Factory Pattern
 
-O **Page Factory Pattern** é uma evolução do Page Object Model, onde a criação dos objetos de página é feita por meio de uma fábrica centralizada. Isso permite instanciar e gerenciar facilmente múltiplos objetos de página, além de facilitar a manutenção e a escalabilidade dos testes.
+The **Page Factory Pattern** is an evolution of the Page Object Model, where the creation of page objects is done through a centralized factory. This allows you to easily instantiate and manage multiple page objects, as well as facilitate the maintenance and scalability of tests.
 
-**Exemplo:**
+**Example:**
 ```typescript
 const factory = new PageFactory(page);
 const loginPage = factory.getLoginPage();
-await loginPage.login("email@teste.com", "senha");
+await loginPage.login("email@test.com", "password");
 ```
 
-## Estrutura do Projeto
+## Project Structure
 
-- `ui/pages/`: Page Objects com os elementos e ações de cada página.
-- `ui/factories/`: Fábricas responsáveis por criar e fornecer instâncias dos Page Objects.
-- `tests/`: Arquivos de teste automatizados.
-- `playwright.config.ts`: Configuração do Playwright (incluindo baseURL).
+- `ui/pages/`: Page Objects with the elements and actions of each page.
+- `ui/factories/`: Factories responsible for creating and providing instances of the Page Objects.
+- `tests/`: Automated test files.
+- `playwright.config.ts`: Playwright configuration (including baseURL).
 
-## Comandos Essenciais
+## Essential Commands
 
-- **Executar todos os testes:**
+- **Run all tests:**
   ```
   npx playwright test
   ```
 
-- **Executar testes em modo UI interativo:**
+- **Run tests in interactive UI mode:**
   ```
   npx playwright test --ui
   ```
 
-- **Executar testes em um navegador específico:**
+- **Run tests in a specific browser:**
   ```
   npx playwright test --project=chromium
   ```
 
-- **Executar um arquivo de teste específico:**
+- **Run a specific test file:**
   ```
   npx playwright test tests/login.test.ts
   ```
 
-- **Executar em modo debug:**
+- **Run in debug mode:**
   ```
   npx playwright test --debug
   ```
 
-- **Gerar testes automaticamente com Codegen:**
+- **Generate tests automatically with Codegen:**
   ```
   npx playwright codegen
   ```
 
-## Requisitos
+## Requirements
 
-- Node.js instalado
-- Dependências instaladas com:
+- Make sure you have Node.js version 18 or higher installed.
+- Dependencies installed with:
   ```
-  npm install
+  npm run setup
   ```
 
-## Observações
+## Notes
 
-- O projeto utiliza `baseURL` configurado no `playwright.config.ts`, permitindo o uso de caminhos relativos nos testes.
-- Como a aplicação de exemplo não possui banco de dados persistente, os dados criados existem apenas durante a sessão.
+- The project uses `baseURL` configured in `playwright.config.ts`, allowing the use of relative paths in tests.
+- As the sample application does not have a persistent database, the data created exists only during the session.

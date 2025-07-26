@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "automation test patterns",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "setup": "npm install && npx playwright install"
+  },
   "author": "Alex Alexandre Alves",
   "license": "ISC",
   "devDependencies": {
